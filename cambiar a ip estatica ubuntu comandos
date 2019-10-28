@@ -1,0 +1,27 @@
+cambiar ip estatica
+
+cambiar el archivo yaml /etc/netplan/01-network-manager-all.yaml 
+
+	sudo nano /etc/netplan/01-network-manager-all.yaml 
+
+añadir estilo lode abajo para que la ip sea estatica
+
+	# Let NetworkManager manage all devices on this system
+	network:
+	  version: 2
+	 # renderer: NetworkManager
+	  ethernets:
+	   enp0s3:
+	    dhcp4: no
+	    dhcp6: no
+	    addresses: [192.168.0.20/24, ]
+
+	control + o para guardar, enter confirmar 
+	control + x para salir, enter para confirmar
+
+aplicar los cambios
+
+	sudo netplan apply
+
+
+
